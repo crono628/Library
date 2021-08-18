@@ -1,38 +1,35 @@
-// const myTitle = document.querySelector('.title')
-// const myAuthor = document.querySelector('.author')
-// const myPages = document.querySelector('.pages')
-// const myFinished = document.querySelector('.finished')
-// const collection = document.querySelector('.book-collection')
+// const myTitle = document.querySelector('.title').value
+// const myAuthor = document.querySelector('.author').value
+// const myPages = document.querySelector('.pages').value
+// const myRead = document.querySelector('.read').checked
+const collection = document.querySelector('.book-collection')
 
-const subBtn = document.querySelector('.submit-btn')
+const subBtn = document.querySelector('#submit-btn')
 
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author 
-    this.pages = pages 
-    this.read = read
+  this.title = title
+  this.author = author
+  this.pages = pages
+  this.read = read
 }
 
-let newBook = new Book()
 
-function addBookToLibrary(title, author, pages, read) {
-    title = newBook.title
-    author = newBook.author
-    pages = newBook.pages
-    read = newBook.read
-    newBook.title = form.title.value
-    newBook.author = form.author.value
-    newBook.pages = form.pages.value
-    newBook.read = form.read.value
+function addBookToLibrary() {
+  title = document.querySelector('.title').value
+  author = document.querySelector('.author').value
+  pages = document.querySelector('.pages').value
+  read = document.querySelector('.read').checked
+
+  let newBook = new Book(title, author, pages, read)
+
+  myLibrary.push(newBook)
+  console.log(newBook)
 }
 
-console.log(addBookToLibrary(title, author, pages, read));
 
-subBtn.addEventListener('click', () => {
-    addBookToLibrary().push(myLibrary)
-    console.log(myLibrary);
-    console.log('testing');
-});
-
+subBtn.addEventListener('click', function () {
+  addBookToLibrary()
+  console.log(myLibrary)
+})
