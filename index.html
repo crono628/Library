@@ -2,26 +2,30 @@
 <html lang="en">
 
 <head>
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
+	<script defer src="script.js">
+
+	</script>
+	<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Library</title>
 </head>
 
 <body>
-    <h1>My Library</h1>
-    <div>
-        <h4>Add books to your library:</h4>
-        <input class="title" type="text" placeholder="Title" required><br><br>
-        <input class="author" type="text" placeholder="Author" required><br><br>
-        <input class="pages" type="number" placeholder="Pages"><br><br>
-        <input class="read" type="checkbox">Finished reading <br><br>
-        <button id="submit-btn">Add Book to Library</button>
-        <div class="book-collection">
-        </div>
+	<div>
+		<h1>My Library</h1>
+		<button class="add-btn">Add book</button>
+    <div class="popup" id="my-popup">
+      <input class="title" type="text" placeholder="Title" required><br><br>
+      <input class="author" type="text" placeholder="Author" required><br><br>
+      <input class="pages" type="number" placeholder="Pages" min="0"><br><br>
+      <input class="read" type="checkbox">Finished reading <br><br>
+      <button id="submit-btn">Add Book to Library</button>
     </div>
+  </div>
+  <div class="book-collection">
+  </div>
 
 </body>
 

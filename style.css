@@ -1,18 +1,27 @@
 body {
-    display: grid;
-    background-color: antiquewhite;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding: 0;
-    margin: 10px;
-
+  display: flex;
+  background-color: antiquewhite;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 10px;
+  margin: 10px;
 }
 
 .book-collection {
-    display: grid;
-    justify-content: left;
-    align-content: center;
-    grid-template-columns: repeat(5, auto);
-    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
-    min-height: 10vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  align-content: center;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  padding: 20px;
 }
 
+.add-btn{
+  padding: 5px;
+  margin: 10px;
+}
+
+.popup{
+  display: none;
+}
