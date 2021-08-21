@@ -1,3 +1,14 @@
+h1{
+  background-color: rgb(4, 99, 177);
+  width: 100%;
+  position:fixed;
+  top: 0px;
+  left: 0px; 
+  margin: auto;
+  padding: 6px;
+  text-align: left;
+}
+
 body {
   display: flex;
   background-color: antiquewhite;
@@ -14,14 +25,19 @@ body {
   align-content: center;
   grid-template-columns: repeat(5, auto);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
-  padding: 20px;
+  padding: 25px
 }
 
-.add-btn{
-  padding: 5px;
-  margin: 10px;
+.add-btn {
+  padding: 6px;
+  margin: 2px;
+  margin-top: 90vh;
+  position: absolute;
 }
 
-.popup{
+.popup {
   display: none;
+  padding: 10px;
+  margin-top: 300px;
+  position: absolute;
 }
