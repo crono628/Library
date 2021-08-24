@@ -33,11 +33,15 @@ body {
   margin: 2px;
   margin-top: 90vh;
   position: absolute;
+  border-radius: 10px;
 }
 
 .popup {
   display: none;
   padding: 10px;
-  margin-top: 300px;
+  margin-top: 350px;
   position: absolute;
+  background-color:bisque;
+  border: solid 1px;
+  border-radius: 5px;
 }

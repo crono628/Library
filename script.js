@@ -6,7 +6,13 @@ const collection = document.querySelector('.book-collection')
 const subBtn = document.querySelector('#submit-btn')
 const addBtn = document.querySelector('.add-btn')
 const popup = document.querySelector('#my-popup')
-let myLibrary = [];
+let myLibrary = [{
+    "title": "sdf",
+    "author": "sdf",
+    "pages": "",
+    "read": true
+}];
+createBook()
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -36,34 +42,53 @@ function createBook() {
     newDiv.style.color = 'white'
     newDiv.style.borderRadius = '10px'
     newDiv.style.paddingLeft = '5px'
+
     const newTitle = document.createElement('p')
     newTitle.setAttribute('class', 'new-title')
+
     const newAuthor = document.createElement('p')
     newAuthor.setAttribute('class', 'new-author')
+
     const newPages = document.createElement('p')
     newPages.setAttribute('class', 'new-pages')
+
     const newRead = document.createElement('p')
     newRead.setAttribute('class', 'new-read')
+
+    const btnDiv = document.createElement('div')
+    btnDiv.setAttribute('class', 'btn-div')
+    btnDiv.style.display = 'flex'
+    btnDiv.style.justifyContent = 'space-between'
+    btnDiv.style.padding = '10px'
+
     const newDeleteBtn = document.createElement('button')
     newDeleteBtn.setAttribute('id', 'delete-btn')
-    newDeleteBtn.textContent = 'X'
+    newDeleteBtn.textContent = 'Remove Book'
     newDeleteBtn.style.backgroundColor = 'darkred'
-    const toggleBtn = document.createElement('input')
-    // toggleBtn.setAttribute('id', 'toggle-btn')
-    // toggleBtn.setAttribute('type', 'checkbox')
-    // toggleBtn.setAttribute('class', 'slider')
-    // toggleBtn.setAttribute('display', 'inline-block')
+    newDeleteBtn.style.color = 'white'
+    newDeleteBtn.style.fontSize = '11px'
+
+    const changeRead = document.createElement('button')
+    changeRead.setAttribute('id', 'switch')
+    changeRead.textContent = 'Change Status'
+    changeRead.style.fontSize = '11px'
 
     collection.appendChild(newDiv)
     newDiv.appendChild(newTitle)
     newDiv.appendChild(newAuthor)
     newDiv.appendChild(newPages)
     newDiv.appendChild(newRead)
-    newDiv.appendChild(newDeleteBtn)
-    newDiv.appendChild(toggleBtn)
+    newDiv.appendChild(btnDiv)
+    btnDiv.appendChild(newDeleteBtn)
+    btnDiv.appendChild(changeRead)
 
     newDeleteBtn.addEventListener('click', function () {
         deleteBook(myLibrary, collection.removeChild(newDiv))
+    })
+
+    changeRead.addEventListener('click', function () {
+        changeReadStatus(newRead.read)
+        console.log(myLibrary[0])
     })
 
     newTitle.textContent = myLibrary[0].title
@@ -96,16 +121,22 @@ const clearInput = () => {
     myRead.checked = false
 }
 
-function openForm() {
+const openForm = () => {
     popup.style.display = "block";
 }
 
-function closeForm() {
+const closeForm = () => {
     popup.style.display = "none";
 }
 
 addBtn.addEventListener('click', function () {
-    openForm()
+    if (popup.style.display == 'block') {
+        addBtn.textContent = 'Add book'
+        closeForm()
+    } else {
+        addBtn.textContent = 'Close form'
+        openForm()
+    }
 })
 
 subBtn.addEventListener('click', function () {
@@ -124,4 +155,12 @@ function deleteBook(arr, book) {
         arr.splice(arr.indexOf(book), 1)
     }
     return arr
+}
+
+function changeReadStatus(arr, read) {
+    if (arr.indexOf(read) >=0){
+    x = !x
+    }
+    
+    return x
 }
