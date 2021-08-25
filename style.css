@@ -34,6 +34,7 @@ body {
   margin-top: 90vh;
   position: absolute;
   border-radius: 10px;
+  width: 125px;
 }
 
 .popup {
@@ -44,4 +45,5 @@ body {
   background-color:bisque;
   border: solid 1px;
   border-radius: 5px;
+  width: 200px;
 }

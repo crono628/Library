@@ -7,9 +7,9 @@ const subBtn = document.querySelector('#submit-btn')
 const addBtn = document.querySelector('.add-btn')
 const popup = document.querySelector('#my-popup')
 let myLibrary = [{
-    "title": "sdf",
-    "author": "sdf",
-    "pages": "",
+    "title": "Test Title",
+    "author": "Test Author",
+    "pages": "250",
     "read": true
 }];
 createBook()
@@ -45,6 +45,7 @@ function createBook() {
 
     const newTitle = document.createElement('p')
     newTitle.setAttribute('class', 'new-title')
+    newTitle.style.fontWeight = 'bold'
 
     const newAuthor = document.createElement('p')
     newAuthor.setAttribute('class', 'new-author')
@@ -87,13 +88,12 @@ function createBook() {
     })
 
     changeRead.addEventListener('click', function () {
-        changeReadStatus(newRead.read)
-        console.log(myLibrary[0])
+        
     })
 
     newTitle.textContent = myLibrary[0].title
-    newAuthor.textContent = myLibrary[0].author
-    newPages.textContent = myLibrary[0].pages
+    newAuthor.textContent = 'by ' + myLibrary[0].author
+    newPages.textContent = myLibrary[0].pages + ' pages'
 
     if (myLibrary[0].title == '') {
         newTitle.textContent = 'Unknown Title'
@@ -155,12 +155,4 @@ function deleteBook(arr, book) {
         arr.splice(arr.indexOf(book), 1)
     }
     return arr
-}
-
-function changeReadStatus(arr, read) {
-    if (arr.indexOf(read) >=0){
-    x = !x
-    }
-    
-    return x
 }
