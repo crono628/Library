@@ -1,9 +1,9 @@
-h1{
+h1 {
   background-color: rgb(4, 99, 177);
   width: 100%;
-  position:fixed;
+  position: fixed;
   top: 0px;
-  left: 0px; 
+  left: 0px;
   margin: auto;
   padding: 6px;
   text-align: left;
@@ -42,8 +42,32 @@ body {
   padding: 10px;
   margin-top: 350px;
   position: absolute;
-  background-color:bisque;
+  background-color: bisque;
   border: solid 1px;
   border-radius: 5px;
   width: 200px;
+}
+
+.new-book {
+  background-color: saddlebrown;
+  border:5px solid black;
+  margin:10px;
+  height:225px;
+  width:150px;
+  color:white;
+  border-radius:10px;
+  padding-left:5px;
+}
+
+.new-book button{
+  display: flex;
+  justify-content: space-evenly;
+  padding: auto;
+  font-size: 11px;
+  border-radius: 100px;
+}
+
+#delete-btn{
+  background-color: darkred;
+  color: white;
 }

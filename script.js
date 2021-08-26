@@ -6,111 +6,81 @@ const collection = document.querySelector('.book-collection')
 const subBtn = document.querySelector('#submit-btn')
 const addBtn = document.querySelector('.add-btn')
 const popup = document.querySelector('#my-popup')
+const deleteBtn = document.querySelector('#delete-btn')
+const bookDiv = document.querySelector('.new-book')
+
 let myLibrary = [{
     "title": "Test Title",
     "author": "Test Author",
     "pages": "250",
-    "read": true
+    "read": true,
+    "id": 0
 }];
-createBook()
+
+createBookCard()
 
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
+    this.id = id
 }
 
-function addBookToLibrary(newBook) {
-    let title = document.querySelector('.title').value
-    let author = document.querySelector('.author').value
-    let pages = document.querySelector('.pages').value
-    let read = document.querySelector('.read').checked
-
-    newBook = new Book(title, author, pages, read)
-    myLibrary.unshift(newBook)
+function addBookToLibrary() {
+    return myLibrary.push(new Book(myTitle.value, myAuthor.value, myPages.value, myRead.checked))
 }
 
-function createBook() {
+function toggleRead(book) {
+    book.read = !book.read
+    return
+}
+
+function createBookCard() {
     const newDiv = document.createElement('div')
     newDiv.setAttribute('class', 'new-book')
-    newDiv.style.border = '5px solid black'
-    newDiv.style.backgroundColor = 'saddlebrown'
-    newDiv.style.margin = '10px'
-    newDiv.style.height = '200px'
-    newDiv.style.width = '150px'
-    newDiv.style.color = 'white'
-    newDiv.style.borderRadius = '10px'
-    newDiv.style.paddingLeft = '5px'
-
-    const newTitle = document.createElement('p')
+    const newTitle = document.createElement('h2')
     newTitle.setAttribute('class', 'new-title')
-    newTitle.style.fontWeight = 'bold'
-
     const newAuthor = document.createElement('p')
-    newAuthor.setAttribute('class', 'new-author')
-
     const newPages = document.createElement('p')
-    newPages.setAttribute('class', 'new-pages')
-
     const newRead = document.createElement('p')
-    newRead.setAttribute('class', 'new-read')
-
-    const btnDiv = document.createElement('div')
-    btnDiv.setAttribute('class', 'btn-div')
-    btnDiv.style.display = 'flex'
-    btnDiv.style.justifyContent = 'space-between'
-    btnDiv.style.padding = '10px'
-
     const newDeleteBtn = document.createElement('button')
     newDeleteBtn.setAttribute('id', 'delete-btn')
     newDeleteBtn.textContent = 'Remove Book'
-    newDeleteBtn.style.backgroundColor = 'darkred'
-    newDeleteBtn.style.color = 'white'
-    newDeleteBtn.style.fontSize = '11px'
-
+    newDeleteBtn.addEventListener('click', () => console.log(myLibrary[1].id))
     const changeRead = document.createElement('button')
     changeRead.setAttribute('id', 'switch')
     changeRead.textContent = 'Change Status'
-    changeRead.style.fontSize = '11px'
 
     collection.appendChild(newDiv)
     newDiv.appendChild(newTitle)
     newDiv.appendChild(newAuthor)
     newDiv.appendChild(newPages)
     newDiv.appendChild(newRead)
-    newDiv.appendChild(btnDiv)
-    btnDiv.appendChild(newDeleteBtn)
-    btnDiv.appendChild(changeRead)
+    newDiv.appendChild(newDeleteBtn)
+    newDiv.appendChild(changeRead)
 
-    newDeleteBtn.addEventListener('click', function () {
-        deleteBook(myLibrary, collection.removeChild(newDiv))
-    })
-
-    changeRead.addEventListener('click', function () {
-        
-    })
-
-    newTitle.textContent = myLibrary[0].title
-    newAuthor.textContent = 'by ' + myLibrary[0].author
-    newPages.textContent = myLibrary[0].pages + ' pages'
-
-    if (myLibrary[0].title == '') {
-        newTitle.textContent = 'Unknown Title'
+    for (let i = 0; i < myLibrary.length; i++) {
+        newTitle.textContent = myLibrary[i].title
+        newAuthor.textContent = 'by ' + myLibrary[i].author
+        newPages.textContent = myLibrary[i].pages + ' pages'
+        id=i
+        if (myLibrary[i].pages === '') {
+            newPages.textContent = 'Unknown Pages'
+        }
+        if (myLibrary[i].read == true) {
+            newRead.textContent = 'Book is read'
+        } else {
+            newRead.textContent = 'Book is unread'
+        }
     }
+}
 
-    if (myLibrary[0].author === '') {
-        newAuthor.textContent = 'Unknown Author'
-    }
-
-    if (myLibrary[0].pages === '') {
-        newPages.textContent = 'Unknown Pages'
-    }
-
-    if (myLibrary[0].read == true) {
-        newRead.textContent = 'Book is read'
-    } else {
-        newRead.textContent = 'Book is unread'
+const getIndex = (title) => {
+    for (let book of myLibrary) {
+        if (book.title == title) {
+            console.log(myLibrary.indexOf(book))
+        }
     }
 }
 
@@ -144,15 +114,17 @@ subBtn.addEventListener('click', function () {
         console.log('Please enter a title and/or author')
     } else {
         addBookToLibrary()
-        createBook()
+        createBookCard()
         clearInput()
         closeForm()
     }
 })
 
-function deleteBook(arr, book) {
-    if (arr.indexOf(book) >= 0) {
-        arr.splice(arr.indexOf(book), 1)
-    }
-    return arr
+const deleteBook = (bookIndex) => {
+    myLibrary.splice(bookIndex, 1)
 }
+
+// deleteBtn.addEventListener('click', function () {
+//     deleteBook()
+//     console.log('test')
+// })
