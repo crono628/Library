@@ -2,31 +2,40 @@
 <html lang="en">
 
 <head>
-  <script defer src="script.js">
-
-  </script>
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
   <title>Library</title>
 </head>
 
 <body>
-  <div>
-    <h1>My Library</h1>
-  </div>
-  <div>
-    <div class="popup" id="my-popup">
-      <input class="title" type="text" placeholder="Title" required><br><br>
-      <input class="author" type="text" placeholder="Author" required><br><br>
-      <input class="pages" type="number" placeholder="Pages" min="0"><br><br>
-      <input class="read" type="checkbox">Finished reading <br><br>
-      <button id="submit-btn">Add Book to Library</button>
+
+  <div class="banner">
+    <div class="left">
+      <div>My Library</div>
     </div>
-    <div><button class="add-btn">Add book</button></div>
+    <div class="right">
+      <button class="add-book-btn">Add Book</button>
+    </div>
   </div>
-  <div class="book-collection">
+
+  <div class="container">
+    <div class="book-shelf"></div>
+  </div>
+
+  <div class="popup-container">
+    <div>
+      <p><input type="text" placeholder="Title"></p>
+      <p><input type="text" placeholder="Author"></p>
+      <p><input type="number" placeholder="Page"></p>
+      <p><input type="radio" name="book-choice" id="book-started">Book Started <br> <input type="radio"
+          name="book-choice" id="book-completed"> Book Completed</p>
+    </div>
   </div>
 
 </body>

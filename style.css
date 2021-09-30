@@ -1,73 +1,72 @@
-h1 {
-  background-color: rgb(4, 99, 177);
-  width: 100%;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  margin: auto;
-  padding: 6px;
-  text-align: left;
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: 'Acme', sans-serif;
 }
 
 body {
+  background-color: blanchedalmond;
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
   display: flex;
-  background-color: antiquewhite;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  padding: 10px;
-  margin: 10px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  background-color: darkcyan;
+  height: 35px;
+  color: aliceblue;
+  font-size: 20px;
 }
 
-.book-collection {
+.left {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: left;
-  align-content: center;
-  grid-template-columns: repeat(5, auto);
-  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
-  padding: 25px
+  justify-content: space-around;
+  width: 110px;
 }
 
-.add-btn {
-  padding: 6px;
-  margin: 2px;
-  margin-top: 90vh;
-  position: absolute;
-  border-radius: 10px;
-  width: 125px;
-}
-
-.popup {
-  display: none;
-  padding: 10px;
-  margin-top: 350px;
-  position: absolute;
-  background-color: bisque;
-  border: solid 1px;
-  border-radius: 5px;
-  width: 200px;
-}
-
-.new-book {
-  background-color: saddlebrown;
-  border:5px solid black;
-  margin:10px;
-  height:225px;
-  width:150px;
-  color:white;
-  border-radius:10px;
-  padding-left:5px;
-}
-
-.new-book button{
+.right {
   display: flex;
-  justify-content: space-evenly;
-  padding: auto;
-  font-size: 11px;
-  border-radius: 100px;
+  justify-content: space-around;
+  width: 110px;
 }
 
-#delete-btn{
-  background-color: darkred;
-  color: white;
+.right button {
+  font-size: 20px;
+  width: 110px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: aliceblue;
+  cursor: pointer;
+  transition: background-color 0.4s, transform 0.4s, color 0.4s;
+}
+
+.right button:hover {
+  background-color: aqua;
+  color: black;
+  width: 110px;
+  border-radius: 50%;
+}
+
+.popup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100vw;
+}
+
+.popup-container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: aqua;
+  height: 250px;
+  width: 250px;
 }
