@@ -14,13 +14,18 @@ class Book {
   }
 
   createBookDiv() {
-    let newDiv = document.createElement('div')
+    let newBook = document.createElement('div')
     let newTitle = document.createElement('h2')
-    newDiv.classList.add('book')
-    bookShelf.appendChild(newDiv)
-    newDiv.appendChild(newTitle)
+    let newAuthor = document.createElement('p')
+    let newPages = document.createElement('p')
+    let newStatus = document.createElement('p')
+    newBook.classList.add('book')
+    bookShelf.appendChild(newBook)
+    newBook.appendChild(newTitle)
+    newBook.appendChild(newAuthor)
+    newBook.appendChild(newPages)
+    newBook.appendChild(newStatus)
   }
-
 }
 
 addButton.addEventListener('click', () => {

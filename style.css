@@ -125,20 +125,16 @@ body{
 }
 
 .book{
-  width: 100px ; 
-  height:150px;
+  width: 150px ; 
+  height:200px;
   border: solid red;
-}
-
-.container{
-
 }
 
 .book-shelf{
   display: flex;
   padding: 10px;
-  width: 95%;
+  width: 98%;
   flex-wrap: wrap;
   margin: 10px;
-  gap: 10px;
+  gap: 20px;
 }
