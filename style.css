@@ -127,6 +127,7 @@ body {
 .book {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 200px;
@@ -146,20 +147,20 @@ body {
 
 .new-title {
   height: 31px;
-  width: max-content;
+  width: 100%;
 }
 
 .new-author {
   height: 20.5px;
-  width: max-content;
+  width: 100%;
 }
 
 .new-pages {
   height: 20.5px;
-  width: max-content;
+  width: 100%;
 }
 
 .new-status {
   height: 20.5px;
-  width: max-content;
+  width: 100%;
 }

@@ -16,14 +16,24 @@ class Book {
 
 bookCollection = [{
   title: "tester",
-  author: "",
+  author: "toot",
   pages: "100",
   status: "Completed"
 }, {
   title: "test",
-  author: "",
+  author: "fart",
   pages: "200",
   status: "Completed"
+}, {
+  title: "tester",
+  author: "Ralph",
+  pages: "300",
+  status: "Completed"
+}, {
+  title: "Toot, fart, burp, sleep",
+  author: "Ralph DeSantis",
+  pages: "4",
+  status: "Started"
 }]
 
 addButton.addEventListener('click', () => {
@@ -78,7 +88,7 @@ function createBookDiv(bookObj) {
   const newDeleteBtn = document.createElement("button");
   newDeleteBtn.setAttribute("id", "delete-btn");
   newDeleteBtn.textContent = "Remove Book";
-  // newDeleteBtn.addEventListener("click", deleteBook);
+  newDeleteBtn.addEventListener("click", deleteBook);
   newDeleteBtn.dataset.index = bookIndex;
   newBook.appendChild(newDeleteBtn);
 
@@ -132,6 +142,13 @@ function refresh(library) {
   library.forEach((book) => {
     createBookDiv(book)
   })
+}
+
+function deleteBook(e) {
+  let bookArrIndex = e.target.dataset.index;
+  bookCollection.splice(bookArrIndex, 1)
+  purgeLibrary()
+  refresh(bookCollection)
 }
 
 refresh(bookCollection)
