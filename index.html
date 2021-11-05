@@ -1,49 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="nav">Library</div>
+      <div class="nav right" data-add-book>Add Book</div>
+    </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-  <script src="script.js" defer>
-
-  </script>
-  <title>Library</title>
-</head>
-
-<body>
-
-  <div class="body-container blur-out">
-    <div class="banner">
-      <div class="left">
-        <div>My Library</div>
+    <form class="form">
+      <input
+        placeholder="Title"
+        type="text"
+        id="title"
+        minlength="3"
+        maxlength="12"
+        required
+      />
+      <input
+        placeholder="Author"
+        type="text"
+        id="author"
+        minlength="3"
+        maxlength="12"
+        required
+      />
+      <input
+        placeholder="Pages"
+        type="number"
+        id="pages"
+        minlength="1"
+        maxlength="4"
+        required
+      />
+      <div class="radio-span">
+        <label for="read">Read</label>
+        <input
+          type="radio"
+          id="read"
+          name="read-status"
+          value="Read"
+          required
+        />
+        <label for="unread">Unread</label>
+        <input type="radio" id="unread" name="read-status" value="Unread" />
       </div>
-      <div class="right">
-        <button class="add-book-btn">Add Book</button>
-      </div>
-    </div>
-    <div class="banner-spacer"></div>
-    <div class="container">
-      <div class="book-shelf"></div>
-    </div>
-  </div>
+      <input
+        class="submit-form"
+        data-submit-form
+        type="button"
+        value="Submit"
+      />
+    </form>
 
-  <div class="popup-container">
-    <div>
-      <p><input id="title" type="text" placeholder="Title"></p>
-      <p><input id="author" type="text" placeholder="Author"></p>
-      <p><input id="pages" type="number" placeholder="Pages"></p>
-      <p><input value="Started" type="radio" name="book-choice">Book Started<br><input value="Completed" type="radio"
-          name="book-choice">Book Completed</p>
-      <span><button data-popup="submit" class="popup-btn">Submit</button> <button data-popup="cancel"
-          class="popup-btn">Cancel</button></span>
-    </div>
-  </div>
-
-</body>
-
+    <div class="book-shelf" data-book-shelf></div>
+  </body>
 </html>
