@@ -17,6 +17,7 @@ body {
   background-color: aqua;
   justify-content: space-between;
   align-items: center;
+  border-bottom: solid brown 7px;
 }
 
 .nav {
@@ -39,15 +40,48 @@ body {
 .book-shelf {
   display: flex;
   flex-wrap: wrap;
-  border: solid red;
   height: 100%;
+  padding-bottom: 20px;
 }
 
 .book {
-  width: 100px;
-  height: 150px;
+  width: 125px;
+  height: 175px;
   border: solid black;
   margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: khaki;
+  border-radius: 10px;
+  position: relative;
+}
+
+.book div {
+  min-height: 18px;
+  width: 94px;
+  overflow-wrap: wrap;
+  padding-left: 5px;
+}
+
+.book-title {
+  font-weight: 800;
+}
+
+.book-delete {
+  width: 20px;
+  bottom: 5px;
+  right: 5px;
+  position: absolute;
+}
+
+.book-author {
+}
+
+.book-pages {
+}
+
+.book-status {
 }
 
 .form {

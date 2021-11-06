@@ -16,47 +16,48 @@
 
     <form class="form">
       <input
+        required
         placeholder="Title"
         type="text"
         id="title"
         minlength="3"
         maxlength="12"
-        required
       />
       <input
+        required
         placeholder="Author"
         type="text"
         id="author"
         minlength="3"
         maxlength="12"
-        required
       />
       <input
+        required
         placeholder="Pages"
         type="number"
         id="pages"
-        minlength="1"
-        maxlength="4"
-        required
+        min="0"
+        max="9999"
       />
       <div class="radio-span">
         <label for="read">Read</label>
         <input
+          required
           type="radio"
           id="read"
           name="read-status"
           value="Read"
-          required
         />
         <label for="unread">Unread</label>
-        <input type="radio" id="unread" name="read-status" value="Unread" />
+        <input
+          type="radio"
+          id="unread"
+          name="read-status"
+          value="Unread"
+          required
+        />
       </div>
-      <input
-        class="submit-form"
-        data-submit-form
-        type="button"
-        value="Submit"
-      />
+      <button class="submit-form" data-submit-form type="submit">Submit</button>
     </form>
 
     <div class="book-shelf" data-book-shelf></div>
