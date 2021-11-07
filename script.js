@@ -3,10 +3,21 @@ const addBook = document.querySelector('[data-add-book]');
 const submitForm = document.querySelector('[data-submit-form]');
 const form = document.forms[0];
 const radio = form.elements['read-status'];
-const bookStatusDiv = document.getElementsByClassName('book-status');
-const bookDelete = document.getElementsByName('book-delete');
+const books = document.getElementsByClassName('book');
 
-let library = [];
+let library = [
+  { author: 'author', id: 2, name: 'title', pages: '0', status: 'Read' },
+  {
+    author: 'Ralph DeSantis',
+    id: 2,
+    name: 'Eat, Toot, Burp',
+    pages: '10',
+    status: 'Read',
+  },
+  { author: 'author', id: 2, name: 'title', pages: '0', status: 'Read' },
+  { author: 'author', id: 2, name: 'title', pages: '0', status: 'Read' },
+];
+render();
 
 function dom(element, attributes = {}, text, parent) {
   const elem = document.createElement(element);
@@ -30,16 +41,20 @@ function render() {
   library.forEach((item) => {
     const newBook = document.createElement('div');
     newBook.classList.add('book');
-    dom(
-      'button',
-      { classList: 'book-delete', name: 'book-delete' },
-      'X',
-      newBook
-    );
+    newBook.id = library.indexOf(item);
+    dom('button', { classList: 'book-delete' }, 'X', newBook);
     dom('div', { classList: 'book-title' }, item.name, newBook);
     dom('div', { classList: 'book-author' }, item.author, newBook);
     dom('div', { classList: 'book-pages' }, item.pages + ' pages', newBook);
     dom('div', { classList: 'book-status' }, item.status, newBook);
+    newBook.addEventListener('click', (e) => {
+      if (e.target.innerText === 'X') {
+        deleteBook(e);
+      }
+      if (e.target.classList.contains('book-status')) {
+        toggleStatus(e);
+      }
+    });
     bookShelf.appendChild(newBook);
   });
 }
@@ -57,9 +72,19 @@ function clearForm() {
   document.getElementsByName('read-status').checked = false;
 }
 
-function deleteBook(e) {
-  let index = e.target.id;
-  bookCollection.splice(index, 1);
+function deleteBook(event) {
+  let index = event.target.parentElement.id;
+  library.splice(index, 1);
+  render();
+}
+
+function toggleStatus(event) {
+  let bookIndex = event.target.parentElement.id;
+  if (event.target.innerText === 'Read') {
+    library[bookIndex].status = 'Unread';
+  } else {
+    library[bookIndex].status = 'Read';
+  }
   render();
 }
 
@@ -82,16 +107,4 @@ form.addEventListener('submit', (e) => {
 addBook.addEventListener('click', () => {
   form.classList.toggle('active');
   clearForm();
-});
-
-Array.from(bookStatusDiv).forEach((book) => {
-  book.addEventListener('click', (e) => {
-    console.log(e);
-  });
-});
-
-bookDelete.forEach((book) => {
-  book.addEventListener('click', (e) => {
-    console.log('click');
-  });
 });

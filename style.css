@@ -75,13 +75,8 @@ body {
   position: absolute;
 }
 
-.book-author {
-}
-
-.book-pages {
-}
-
 .book-status {
+  cursor: pointer;
 }
 
 .form {
@@ -98,6 +93,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 200px;
+  z-index: 1;
 }
 
 .radio-span {
